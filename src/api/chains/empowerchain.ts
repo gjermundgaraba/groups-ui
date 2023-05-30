@@ -20,8 +20,8 @@ const currencies: AppCurrency[] = [MPWR]
  * @see https://github.com/cosmos/chain-registry/blob/master/regen/chain.json
  */
 export const empowerDevnet: ChainInfo = {
-  rpc: `http://62.210.173.52:26657`,
-  rest: `http://62.210.173.52:1317`,
+  rpc: `https://devnet2.empowerchain.io:26658`,
+  rest: `https://devnet2.empowerchain.io:1318`,
   chainId: 'emp-devnet-2',
   chainName: 'EmpowerChain Devnet 2',
   stakeCurrency: MPWR,

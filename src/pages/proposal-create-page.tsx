@@ -31,7 +31,10 @@ export default function ProposalCreate() {
   const { account } = useSnapshot(Wallet)
   const { data: group, isLoading: isLoadingGroup } = useGroup(groupId)
   const { data: groupPolicies, isLoading: isLoadingPolicies } = useGroupPolicies(groupId)
-  const { data: proposals, isLoading: isLoadingProposals } = useGroupProposals(groupId, groupPolicies)
+  const { data: proposals, isLoading: isLoadingProposals } = useGroupProposals(
+    groupId,
+    groupPolicies,
+  )
   const [groupPolicy] = groupPolicies || []
   const { data: policyBalances } = useBalances(groupPolicy?.address)
 

@@ -20,7 +20,10 @@ export default function GroupPage() {
   const { groupId } = useParams()
   const { data: group, isLoading: isLoadingGroup } = useGroup(groupId)
   const { data: policies, isLoading: isLoadingPolicies } = useGroupPolicies(groupId)
-  const { data: proposals, isLoading: isLoadingProposals } = useGroupProposals(groupId, policies)
+  const { data: proposals, isLoading: isLoadingProposals } = useGroupProposals(
+    groupId,
+    policies,
+  )
   const { toastSuccess, toastErr } = useTxToasts()
 
   const groupPolicy = policies?.[0]

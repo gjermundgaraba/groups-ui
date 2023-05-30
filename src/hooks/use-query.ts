@@ -1,19 +1,23 @@
-import {useQuery} from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 
-import {fetchAllBalances} from 'api/bank.actions'
-import {fetchGroupById, fetchGroupsWithMembersByAdmin, fetchGroupsWithMembersByMember,} from 'api/group.actions'
-import {fetchGroupMembers} from 'api/member.actions'
-import {fetchGroupPolicies} from 'api/policy.actions'
+import { fetchAllBalances } from 'api/bank.actions'
+import {
+  fetchGroupById,
+  fetchGroupsWithMembersByAdmin,
+  fetchGroupsWithMembersByMember,
+} from 'api/group.actions'
+import { fetchGroupMembers } from 'api/member.actions'
+import { fetchGroupPolicies } from 'api/policy.actions'
 import {
   fetchProposalbyId,
   fetchProposalsByGroupPolicy,
   fetchVotesByAddress,
   fetchVotesByProposal,
 } from 'api/proposal.actions'
-import {fetchValidators} from 'api/staking.actions'
-import {Chain} from 'store/chain.store'
-import {Wallet} from 'store/wallet.store'
-import {UIGroupPolicyInfo} from "../types";
+import { fetchValidators } from 'api/staking.actions'
+import { Chain } from 'store/chain.store'
+import { Wallet } from 'store/wallet.store'
+import { UIGroupPolicyInfo } from '../types'
 
 export function useGroup(groupId?: string) {
   return useQuery({
