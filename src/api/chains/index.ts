@@ -13,7 +13,9 @@ const { VITE_LOCAL_HOSTNAME } = import.meta.env
 
 // import { axelar } from './axelar'
 // import { cosmosLocal } from './cosmos-local'
-import { regenLocal, regenTestnet } from './regen'
+// import { regenLocal, regenTestnet } from './regen'
+import {empowerDevnet} from "./empowerchain";
+
 // import { cosmoshub } from './cosmoshub'
 // import { juno } from './juno'
 // import { junoTestnet } from './juno-testnet'
@@ -24,8 +26,7 @@ import { regenLocal, regenTestnet } from './regen'
 export const mainnetChainsArray: ChainInfo[] = []
 
 export const testnetChainsArray: ChainInfo[] = [
-  regenTestnet,
-  ...(VITE_LOCAL_HOSTNAME ? [regenLocal] : []),
+  empowerDevnet,
 ]
 
 export const allChainsArray: ChainInfo[] = [...mainnetChainsArray, ...testnetChainsArray]

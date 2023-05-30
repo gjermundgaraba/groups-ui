@@ -46,10 +46,24 @@ export function getProposalMetadata(
 ): UIProposalMetadata {
   if (isProposalMetadata(metadata)) return metadata
   // NOTE: double parsing is required when value is stringified
-  const parsed = JSON.parse(JSON.parse(JSON.stringify(metadata)))
-  if (isProposalMetadata(parsed)) return parsed
+  //const parsed = JSON.parse(JSON.parse(JSON.stringify(metadata)))
+  //if (isProposalMetadata(parsed)) return parsed
   return {
     title: '',
+    ...defaults,
+  }
+}
+
+export function getGroupPolicyMetadata(
+  metadata: unknown,
+  defaults?: UIGroupMetadata,
+): UIGroupMetadata {
+  if (isGroupMetadata(metadata)) return metadata
+  // NOTE: double parsing is required when value is stringified
+  const parsed = JSON.parse(JSON.parse(JSON.stringify(metadata)))
+  if (isGroupMetadata(parsed)) return parsed
+  return {
+    name: '',
     ...defaults,
   }
 }
