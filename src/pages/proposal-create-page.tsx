@@ -30,12 +30,12 @@ export default function ProposalCreate() {
   const { fee } = useSnapshot(Chain)
   const { account } = useSnapshot(Wallet)
   const { data: group, isLoading: isLoadingGroup } = useGroup(groupId)
-  const { data: groupPolicies } = useGroupPolicies(groupId)
-  const { data: proposals, isLoading: isLoadingProposals } = useGroupProposals(groupId)
+  const { data: groupPolicies, isLoading: isLoadingPolicies } = useGroupPolicies(groupId)
+  const { data: proposals, isLoading: isLoadingProposals } = useGroupProposals(groupId, groupPolicies)
   const [groupPolicy] = groupPolicies || []
   const { data: policyBalances } = useBalances(groupPolicy?.address)
 
-  if (isLoadingGroup || isLoadingProposals) return <Loading />
+  if (isLoadingGroup || isLoadingProposals || isLoadingPolicies) return <Loading />
   if (!group || !groupPolicy) {
     redirect('/')
     return null

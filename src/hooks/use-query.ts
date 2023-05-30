@@ -1,22 +1,19 @@
-import { useQuery } from '@tanstack/react-query'
+import {useQuery} from '@tanstack/react-query'
 
-import { fetchAllBalances } from 'api/bank.actions'
-import {
-  fetchGroupById,
-  fetchGroupsWithMembersByAdmin,
-  fetchGroupsWithMembersByMember,
-} from 'api/group.actions'
-import { fetchGroupMembers } from 'api/member.actions'
-import { fetchGroupPolicies } from 'api/policy.actions'
+import {fetchAllBalances} from 'api/bank.actions'
+import {fetchGroupById, fetchGroupsWithMembersByAdmin, fetchGroupsWithMembersByMember,} from 'api/group.actions'
+import {fetchGroupMembers} from 'api/member.actions'
+import {fetchGroupPolicies} from 'api/policy.actions'
 import {
   fetchProposalbyId,
   fetchProposalsByGroupPolicy,
   fetchVotesByAddress,
   fetchVotesByProposal,
 } from 'api/proposal.actions'
-import { fetchValidators } from 'api/staking.actions'
-import { Chain } from 'store/chain.store'
-import { Wallet } from 'store/wallet.store'
+import {fetchValidators} from 'api/staking.actions'
+import {Chain} from 'store/chain.store'
+import {Wallet} from 'store/wallet.store'
+import {UIGroupPolicyInfo} from "../types";
 
 export function useGroup(groupId?: string) {
   return useQuery({
@@ -75,11 +72,10 @@ export function useProposal(proposalId?: string) {
   })
 }
 
-export function useGroupProposals(groupId?: string) {
-  const { data: policies } = useGroupPolicies(groupId)
+export function useGroupProposals(groupId?: string, policies?: UIGroupPolicyInfo[]) {
   const policyIds = policies?.map((p) => p.address) || []
   return useQuery({
-    queryKey: ['proposals', groupId],
+    queryKey: ['proposals', groupId, policyIds],
     queryFn: async () => {
       const proposals = await Promise.all(
         policyIds.map(async (address) => await fetchProposalsByGroupPolicy(address)),

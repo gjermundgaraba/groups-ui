@@ -2,12 +2,11 @@ import type { AppCurrency, ChainInfo } from '@keplr-wallet/types'
 
 import { Bech32Address } from 'util/bech32'
 
-
 const MPWR: AppCurrency = {
   coinDenom: 'mpwr',
   coinMinimalDenom: 'umpwr',
   coinDecimals: 6,
-  coinGeckoId: 'empowerchain',
+  coinGeckoId: 'mpwr',
   coinImageUrl:
     'https://raw.githubusercontent.com/cosmos/chain-registry/master/testnets/empowertestnet/images/mpwr.png',
 }
