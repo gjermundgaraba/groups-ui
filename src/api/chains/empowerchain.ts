@@ -16,6 +16,20 @@ const MPWR: AppCurrency = {
  */
 const currencies: AppCurrency[] = [MPWR]
 
+export const empowerTestnet: ChainInfo = {
+  rpc: 'https://empower-testnet-rpc.polkachu.com',
+  rest: 'https://empower-testnet-api.polkachu.com/',
+  chainId: 'circulus-1',
+  chainName: 'EmpowerChain Testnet',
+  stakeCurrency: MPWR,
+  bip44: {
+    coinType: 118,
+  },
+  bech32Config: Bech32Address.defaultBech32Config('empower'),
+  currencies,
+  feeCurrencies: currencies,
+}
+
 /**
  * @see https://github.com/cosmos/chain-registry/blob/master/regen/chain.json
  */
