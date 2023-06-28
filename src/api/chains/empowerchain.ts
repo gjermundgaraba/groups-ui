@@ -16,6 +16,20 @@ const MPWR: AppCurrency = {
  */
 const currencies: AppCurrency[] = [MPWR]
 
+export const empowerMainnet: ChainInfo = {
+  rpc: 'https://rpc.empowerchain.io:26657',
+  rest: 'https://api.empowerchain.io:1317/',
+  chainId: 'empowerchain-1',
+  chainName: 'EmpowerChain Mainnet',
+  stakeCurrency: MPWR,
+  bip44: {
+    coinType: 118,
+  },
+  bech32Config: Bech32Address.defaultBech32Config('empower'),
+  currencies,
+  feeCurrencies: currencies,
+}
+
 export const empowerTestnet: ChainInfo = {
   rpc: 'https://empower-testnet-rpc.polkachu.com',
   rest: 'https://empower-testnet-api.polkachu.com/',
